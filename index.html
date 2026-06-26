@@ -1,0 +1,77 @@
+# Real-Time Chat App
+
+A full-stack real-time chat application with user authentication built using Node.js, Socket.IO, and MongoDB.
+
+## Features
+- User registration and login
+- Passwords hashed with bcryptjs
+- JWT-based authentication for WebSocket connections
+- Real-time messaging with Socket.IO
+- Join/leave notifications
+- Clean responsive UI
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Backend | Node.js, Express |
+| Real-time | Socket.IO |
+| Database | MongoDB + Mongoose |
+| Auth | JWT + bcryptjs |
+| Frontend | HTML, CSS, JavaScript |
+
+## Project Structure
+
+```
+realtime-chat-app/
+├── server/
+│   ├── index.js          # Main server + Socket.IO logic
+│   ├── authRoutes.js     # Register & login endpoints
+│   ├── User.js           # Mongoose user model
+│   ├── .env.example      # Environment variable template
+│   └── package.json
+├── client/
+│   └── index.html        # Single-file frontend
+├── .gitignore
+└── README.md
+```
+
+## Getting Started
+
+### Prerequisites
+- Node.js v18+
+- MongoDB running locally
+
+### Setup
+
+```bash
+# 1. Install backend dependencies
+cd server
+npm install
+
+# 2. Create your .env file
+cp .env.example .env
+# Edit .env and set your JWT_SECRET
+
+# 3. Start MongoDB (in a separate terminal)
+mongod
+
+# 4. Start the server
+node index.js
+```
+
+### Run the Frontend
+Open `client/index.html` in your browser (or use VS Code Live Server).
+
+Open two browser tabs to test real-time messaging between users.
+
+## How It Works
+
+1. Users register/login via REST API (`/auth/register`, `/auth/login`)
+2. Server returns a signed JWT token
+3. Client connects to Socket.IO passing the JWT as auth
+4. Server verifies the JWT in `io.use()` middleware before allowing connection
+5. Authenticated users can send/receive messages in real time
+
+## License
+MIT

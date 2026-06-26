@@ -1,2 +1,19 @@
-# real-time-chat-app
-Real-time chat app with JWT authentication — built with Node.js, Express, Socket.IO, and MongoDB. Features user registration, bcrypt password hashing, token-verified WebSocket connections, and live join/leave notifications.
+{
+  "name": "realtime-chat-server",
+  "version": "1.0.0",
+  "description": "Backend for real-time chat app with JWT auth",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.0",
+    "socket.io": "^4.6.1"
+  }
+}
